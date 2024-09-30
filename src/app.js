@@ -3,6 +3,7 @@ const app = express();
 const validateZip = require("./middleware/validateZip");
 const getZoos = require("./utils/getZoos");
 
+
 app.get("/check/:zip", validateZip, (req, res, next) => {
   const zip = req.params.zip;
   res.send(
@@ -31,6 +32,17 @@ app.get("/zoos/:zip", validateZip, (req, res, next) => {
   }
 });
 
+
+const cors = require('cors');
+const router = express.Router();
+
+router.get('/', cors(), (req, res) => {
+  res.json({ message: 'Hello Render!' });
+});
+
+app.use('/', router);
+
+
 app.use((req, res, next) => {
   res.send("That route could not be found!");
 });
@@ -39,3 +51,5 @@ app.use((err, req, res, next) => {
   res.send(err);
 });
 module.exports = app;
+
+
