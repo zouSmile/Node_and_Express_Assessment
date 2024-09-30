@@ -33,14 +33,14 @@ app.get("/zoos/:zip", validateZip, (req, res, next) => {
 });
 
 
-const cors = require('cors');
-const router = express.Router();
+// const cors = require('cors');
+// const router = express.Router();
 
-router.get('/', cors(), (req, res) => {
-  res.json({ message: 'Hello Render!' });
-});
+// router.get('/', cors(), (req, res) => {
+//   res.json({ message: 'Hello Render!' });
+// });
 
-app.use('/', router);
+// app.use('/', router);
 
 
 app.use((req, res, next) => {
